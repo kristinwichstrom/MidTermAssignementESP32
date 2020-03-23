@@ -29,5 +29,5 @@ if (button.notPressed())
   {
     udp.broadcastTo("init 9 9", 7000);
   }
-  delay (1000);
+  delay (300);
 }
