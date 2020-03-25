@@ -1,16 +1,16 @@
 #include <Arduino.h>
 
 class Button {
-int _buttonPin;
+int buttonPin;
 
 
     public: //constructor   
     Button (int buttonPin) {
-        _buttonPin = buttonPin;
-        pinMode(_buttonPin, INPUT_PULLUP);
+        this->buttonPin = buttonPin;
+        pinMode(buttonPin, INPUT_PULLUP);
     }
 
     bool notPressed (){
-        return digitalRead(_buttonPin);
+        return digitalRead(buttonPin);
     }
 };

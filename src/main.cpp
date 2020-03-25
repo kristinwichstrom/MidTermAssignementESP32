@@ -1,33 +1,26 @@
 #include <Arduino.h>
-#include "WiFi.h"
-#include "AsyncUDP.h"
-#include "Button.h"
+#include <Potentiometer.h>
 
-const char * ssid = "Krisw";     //Insert your wifi name
-const char * password = "solbakk11"; //insert your wifi password
-
-int PIN_BUTTON = 23;
-Button button (PIN_BUTTON);
-
-AsyncUDP udp;
+Potentiometer potentiometer(13);
 
 void setup() {
+  potentiometer.setSensitivity(50);
+  potentiometer.setInfo("INFORMATION!!!");
+  potentiometer.setWarning("WARNING!!!!!");
 
-   Serial.begin(9600);
-    WiFi.mode(WIFI_STA);
-    WiFi.begin(ssid, password);
+  Serial.begin(9600);
+
+  delay(2000);
+  Serial.println(potentiometer.readPotentiometer());
+
 
 }
 
 void loop() {
-
-if (button.notPressed())
-  {
-    Serial.print ("");
-  } 
-  else
-  {
-    udp.broadcastTo("init 9 9", 7000);
+  potentiometer.loop();
+  
+  if (potentiometer.hasChanged()) {
+    Serial.println(potentiometer.readPotentiometer());
   }
-  delay (300);
+  
 }
