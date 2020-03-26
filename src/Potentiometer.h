@@ -6,7 +6,7 @@ class Potentiometer{
         int lastRead;
         int currentRead;
         int sensitivity;
-        String color = "DEFAULT COLOR";
+        String color = "";
     
 
         Potentiometer(int pinNumber)
@@ -28,7 +28,7 @@ class Potentiometer{
 
         bool hasChanged()
         {
-            Serial.println(abs(lastRead-analogRead(pinNumber)));
+            //Serial.println(abs(lastRead-analogRead(pinNumber)));
             return abs(lastRead-analogRead(pinNumber)) > sensitivity;
         }
          void setColor(String message)
@@ -54,20 +54,6 @@ class Potentiometer{
                 {
                     setColor("color 0 0 255");
                 }
-               
-              /*  int digiRead = digitalRead(this->pinNumber);
-               
-                if (this->hasChanged() && digiRead <= 1356)
-             {
-                    Serial.println(this->infoMessage);
-                }
-                else if (this->hasChanged() && digiRead > 1356)
-                {
-                Serial.println(this->infoMessage);
-                }
-                else {
-                    Serial.println(this->infoMessage);
-                }*/
             }
         }
 };

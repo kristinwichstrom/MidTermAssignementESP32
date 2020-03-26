@@ -4,7 +4,6 @@
 #include "Button.h"
 #include <Potentiometer.h>
 
-
 const char * ssid = "Krisw";     //Insert your wifi name
 const char * password = "solbakk11"; //insert your wifi password
 
@@ -32,7 +31,8 @@ if (button.notPressed())
   {
     udp.broadcastTo("init 9 9", 7000);
   }
-  //delay (300);
+  delay (300);
+
   potentiometer.settingColor();
   if (potentiometer.hasChanged()) 
   {
