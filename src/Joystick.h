@@ -1,34 +1,34 @@
-#include <Arduino.h>
+/*#include <Arduino.h>
 
 class Joystick {
 
-int inX ; // The joysticks x-axis
-int inY; // The joysticks y-axis
-
-int xValue;
-int yValue;
-
 public:
+int pinX;
+int pinY;
+unsigned long currentMillis;
+unsigned long previousMillis = 0;
+int interval = 1000;
 
-Joystick (int inX, int inY, int xValue, int yValue) {
-    this->inX = inX;
-    this->inY = inY;
-    this->xValue = xValue;
-    this->yValue = yValue;
-
+Joystick (int inX, int inY) {
+  this-> pinX = pinX;
+  this-> pinY = pinY;
 pinMode (inX, INPUT);
   pinMode (inY, INPUT);
 }
-void readJoystick (){
-xValue = analogRead (inX);
-  yValue = analogRead(inY);
 
-  Serial.print ("\n\t X: ");
-  Serial.print (xValue);
+void movementMessage (String ){
 
-  Serial.print ("\n\t Y: ");
-  Serial.print (yValue);
 }
-
+void movingJoystick (int horizontal, int vertical){
+    if(horizontal == 0){ 
+       movementMessage("moveleft");
+    } else if(horizontal == 4095){ 
+        movementMessage("moveright"); 
+    } else if(vertical == 0){ 
+       movementMessage("moveup");
+    } else if(vertical == 4095){
+      movementMessage("movedown");
+}
     
 };
+*/
