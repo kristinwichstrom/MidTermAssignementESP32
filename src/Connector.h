@@ -9,7 +9,7 @@ class Connector{
  
     public:
         const char * ssid = "wifi name"; //Insert your wifi name
-        const char * password = " password"; //Insert your wifi password
+        const char * password = "password"; //Insert your wifi password
         AsyncUDP udp;
         int port = 7000;
        
