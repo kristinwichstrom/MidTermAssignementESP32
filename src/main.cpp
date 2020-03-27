@@ -1,6 +1,3 @@
-/*
-* The main class executes the program
-*/
 
 // -------- Includes the necessary classes and libraries ------------
 #include <Arduino.h> 
@@ -28,7 +25,7 @@ void setup() {
 }
 
 /*
-* The loop function calls the button, joystick and potentiometer objects with following methods
+* The loop function constineuosly looks for updates and calls the button, joystick and potentiometer functions if there are any.
 */
 void loop() {
  
