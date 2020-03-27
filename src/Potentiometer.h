@@ -43,9 +43,9 @@ class Potentiometer{
             if (this->hasChanged())
             {
                 currentRead = readPotentiometer();
+
                 Serial.println("READ: ");
                 Serial.print(analogRead(pinNumber));
-
 
                 if (currentRead <=1356 )
                 {
