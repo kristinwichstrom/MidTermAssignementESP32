@@ -1,13 +1,12 @@
-/*#include <Arduino.h>
+#include <Arduino.h>
 
 class Joystick {
 
 public:
 int pinX;
 int pinY;
-unsigned long currentMillis;
-unsigned long previousMillis = 0;
-int interval = 1000;
+int currentX;
+int currentY;
 
 Joystick (int inX, int inY) {
   this-> pinX = pinX;
@@ -16,7 +15,7 @@ pinMode (inX, INPUT);
   pinMode (inY, INPUT);
 }
 
-void movementMessage (String ){
+String movementMessage (String move){
 
 }
 void movingJoystick (int horizontal, int vertical){
@@ -29,6 +28,16 @@ void movingJoystick (int horizontal, int vertical){
     } else if(vertical == 4095){
       movementMessage("movedown");
 }
+}
+
+void loop(){
+  currentX = analogRead(pinX);
+  currentY = analogRead(pinY);
+
+  if(currentX > 3000){
+    return "moveRight"
+  }
+
+}
     
 };
-*/

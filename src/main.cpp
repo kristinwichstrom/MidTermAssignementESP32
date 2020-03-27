@@ -1,25 +1,24 @@
 #include <Arduino.h>
-#include "WiFi.h"
-#include "AsyncUDP.h"
-#include "Button.h"
+#include <Button.h>
 #include <Potentiometer.h>
 #include <Joystick.h>
+#include "WiFi.h"
+#include "AsyncUDP.h"
 
 const char * ssid = "Krisw";     //Insert your wifi name
 const char * password = "solbakk11"; //insert your wifi password
 
 int PIN_BUTTON = 23;
 Button button (PIN_BUTTON);
-Potentiometer potentiometer(13);
+Potentiometer potentiometer(34);
 AsyncUDP udp;
-
-WiFiServer server(7000);
+int port = 7000; 
 
 void setup() {
  Serial.begin(9600);
   potentiometer.setSensitivity(50);
-  //WiFi.mode(WIFI_STA);
-  //WiFi.begin(ssid, password);
+  WiFi.mode(WIFI_STA);
+  WiFi.begin(ssid, password);
 }
 
 void loop() {
@@ -30,15 +29,15 @@ void loop() {
   } 
   else
   {
-    udp.broadcastTo("init 9 9", 7000);
+    udp.broadcastTo("init 9 9", port);
   }
-  delay (1000);
+  delay (300);
 
-  potentiometer.loop();
+  potentiometer.changePixelColor();
 
   if (potentiometer.hasChanged()) 
   {
     Serial.println(potentiometer.color);
-   //  udp.broadcastTo(potentiometer.color.c_str(), 7000);
+    udp.broadcastTo(potentiometer.color.c_str(), port);
   }
 }

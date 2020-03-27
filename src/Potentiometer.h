@@ -14,7 +14,7 @@ class Potentiometer{
             this->pinNumber = pinNumber;
             pinMode(pinNumber, INPUT);
             this->lastRead = this->readPotentiometer();
-        }
+        
 
         int readPotentiometer()
         {
@@ -25,26 +25,19 @@ class Potentiometer{
         {
             this->sensitivity = sensitivity;
         }
-
         bool hasChanged()
         {
-            //Serial.println(analogRead(pinNumber));
-            //Serial.println(abs(lastRead-analogRead(pinNumber)));
             return abs(lastRead-analogRead(pinNumber)) > sensitivity;
         }
          void setColor(String message)
        {
            this -> color = message;
        }
-       
-        void loop()
+         void changePixelColor()
         {
-            Serial.println("BEFORECHANGED");
             if (this->hasChanged())
             {
                 currentRead = readPotentiometer();
-
-                Serial.println("READ: ");
                 Serial.print(analogRead(pinNumber));
 
                 if (currentRead <=1356 )
