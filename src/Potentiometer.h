@@ -39,7 +39,6 @@ class Potentiometer{
          */
         void changePixelColor()
         {
-            Serial.println("before has changed");
             if (this->hasChanged())
             {
                 currentRead = readPotentiometer();
@@ -47,7 +46,6 @@ class Potentiometer{
  
                 if (currentRead <=1356 )
                 {  
-                    Serial.println("Red");
                     connect.broadcast("color 255 0 0");
                 }
                 else if(currentRead > 1356 && currentRead <= 2712)
