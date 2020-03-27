@@ -1,43 +1,30 @@
-#include <Arduino.h>
-#include <Button.h>
+// -------- Includes the necessary classes and libraries ------------
+#include <Arduino.h> 
+#include <Button.h>  
 #include <Potentiometer.h>
 #include <Joystick.h>
-#include "WiFi.h"
-#include "AsyncUDP.h"
-
-const char * ssid = "Krisw";     //Insert your wifi name
-const char * password = "solbakk11"; //insert your wifi password
-
+ 
+const char * ssid = "Krisw";     
+const char * password = "solbakk11"; 
+ 
 int PIN_BUTTON = 23;
-Button button (PIN_BUTTON);
+Button button (PIN_BUTTON); 
 Potentiometer potentiometer(34);
-AsyncUDP udp;
-int port = 7000; 
-
+Joystick joystick(36, 35);
+ 
 void setup() {
- Serial.begin(9600);
-  potentiometer.setSensitivity(50);
-  WiFi.mode(WIFI_STA);
-  WiFi.begin(ssid, password);
+      Serial.begin(9600);
+      potentiometer.setSensitivity(50);
+      WiFi.mode(WIFI_STA);
+      WiFi.begin(ssid, password);
 }
-
+ 
 void loop() {
-
-  if (button.notPressed())
-  {
-    Serial.print ("");
-  } 
-  else
-  {
-    udp.broadcastTo("init 9 9", port);
-  }
+ 
+  button.notPressed();
   delay (300);
-
+  joystick.movement();
   potentiometer.changePixelColor();
-
-  if (potentiometer.hasChanged()) 
-  {
-    Serial.println(potentiometer.color);
-    udp.broadcastTo(potentiometer.color.c_str(), port);
-  }
+  
+ 
 }

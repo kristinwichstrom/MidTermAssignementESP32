@@ -1,7 +1,11 @@
 #include <Arduino.h>
+#include "Connector.h"
+
 
 class Button {
+
 int buttonPin;
+        Connector connect;
 
 
     public: //constructor   
@@ -10,7 +14,12 @@ int buttonPin;
         pinMode(buttonPin, INPUT_PULLUP);
     }
 
-    bool notPressed (){
-        return digitalRead(buttonPin);
+    void notPressed (){
+        if(digitalRead(buttonPin)){
+                Serial.println("Not pressed");
+        }else{
+            Serial.println("Pressed");
+            connect.broadcast("init 9 9");
+        }
     }
 };

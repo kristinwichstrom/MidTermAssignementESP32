@@ -1,43 +1,43 @@
 #include <Arduino.h>
+#include "Connector.h"
 
 class Joystick {
 
 public:
-int pinX;
-int pinY;
-int currentX;
-int currentY;
+  int pinX;
+  int pinY;
+  int currentX;
+  int currentY;
+  Connector connect;
 
-Joystick (int inX, int inY) {
-  this-> pinX = pinX;
-  this-> pinY = pinY;
-pinMode (inX, INPUT);
-  pinMode (inY, INPUT);
-}
-
-String movementMessage (String move){
-
-}
-void movingJoystick (int horizontal, int vertical){
-    if(horizontal == 0){ 
-       movementMessage("moveleft");
-    } else if(horizontal == 4095){ 
-        movementMessage("moveright"); 
-    } else if(vertical == 0){ 
-       movementMessage("moveup");
-    } else if(vertical == 4095){
-      movementMessage("movedown");
-}
-}
-
-void loop(){
-  currentX = analogRead(pinX);
-  currentY = analogRead(pinY);
-
-  if(currentX > 3000){
-    return "moveRight"
+  Joystick (int pinX, int pinY) {
+    this-> pinX = pinX;
+    this-> pinY = pinY;
+    pinMode (pinX, INPUT);
+    pinMode (pinY, INPUT);
   }
 
-}
+  void movement(){
+    delay(3000);
+    connect.broadcast("speed 8");
+
+    currentX = analogRead(pinX);
+    currentY = analogRead(pinY);
+    Serial.print("X: ");
+    Serial.println(analogRead(pinX));
+    Serial.print("Y: ");
+    Serial.println(analogRead(pinY));
+
+    if(currentX > 3000){
+      connect.broadcast("moveright");
+    }else if(currentX < 1000){
+      connect.broadcast("moverleft");
+    }
+    if(currentY > 3000){
+      connect.broadcast("moveup");
+    } else if(currentY < 1000){
+      connect.broadcast("movedown");
+    }
+  }
     
 };
