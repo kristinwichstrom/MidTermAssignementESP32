@@ -13,7 +13,7 @@ class Potentiometer{
         String color = "";
    
  
-        Potentiometer(int pinNumber)
+        Potentiometer(int pinNumber) // Constructor for the Potentiometer class
         {
             this->pinNumber = pinNumber;
             pinMode(pinNumber, INPUT);
@@ -34,7 +34,9 @@ class Potentiometer{
         {
             return abs(lastRead-analogRead(pinNumber)) > sensitivity;
         }
-         
+         /*
+         * changePixelColor method checks the currentRead and sets individual commands representing red, green and blue color.
+         */
         void changePixelColor()
         {
             Serial.println("before has changed");
@@ -47,18 +49,16 @@ class Potentiometer{
                 {  
                     Serial.println("Red");
                     connect.broadcast("color 255 0 0");
-                    //connector.broadcast("color 255 0 0");
                 }
                 else if(currentRead > 1356 && currentRead <= 2712)
                 {
                     connect.broadcast("color 0 255 0");
-                    //connector.broadcast("color 0 255 0");
                
                 }
                  else
                 {
                     connect.broadcast("color 0 0 255");
-                    //connector.broadcast("color 0 0 255");
+                    
                 }
             }
         }

@@ -5,15 +5,19 @@
 class Button {
 
 int buttonPin;
-        Connector connect;
+        Connector connect; // Calls the Connector class 
 
 
-    public: //constructor   
-    Button (int buttonPin) {
+    public: 
+
+    Button (int buttonPin) { // Creates a constructor for the Button class
         this->buttonPin = buttonPin;
         pinMode(buttonPin, INPUT_PULLUP);
     }
 
+/*
+* Method checks whether button is pressed or not
+*/
     void notPressed (){
         if(digitalRead(buttonPin)){
                 Serial.println("Not pressed");

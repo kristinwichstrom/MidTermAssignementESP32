@@ -1,29 +1,41 @@
+/*
+* The main class executes the program
+*/
+
 // -------- Includes the necessary classes and libraries ------------
 #include <Arduino.h> 
 #include <Button.h>  
 #include <Potentiometer.h>
 #include <Joystick.h>
  
-const char * ssid = "Krisw";     
-const char * password = "solbakk11"; 
+const char * ssid = "wifi name"; //Insert your wifi name
+const char * password = " password"; //Insert your wifi password
  
+ /*
+ * Sets the pinNumbers for the different sensors.
+ */
 int PIN_BUTTON = 23;
 Button button (PIN_BUTTON); 
-Potentiometer potentiometer(34);
+Potentiometer potentiometer(34); 
 Joystick joystick(36, 35);
+
  
 void setup() {
       Serial.begin(9600);
-      potentiometer.setSensitivity(50);
       WiFi.mode(WIFI_STA);
       WiFi.begin(ssid, password);
+      potentiometer.setSensitivity(50);   // Sets the sensitivity
 }
- 
+
+/*
+* The loop function calls the button, joystick and potentiometer objects with following methods
+*/
 void loop() {
  
   button.notPressed();
-  delay (300);
+  delay (3000);
   joystick.movement();
+  
   potentiometer.changePixelColor();
   
  

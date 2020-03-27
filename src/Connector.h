@@ -7,10 +7,9 @@
  
 class Connector{
  
-   
     public:
-        const char * ssid = "Krisw";     //Insert your wifi name
-        const char * password = "solbakk11"; //insert your wifi password
+        const char * ssid = "wifi name"; //Insert your wifi name
+        const char * password = " password"; //Insert your wifi password
         AsyncUDP udp;
         int port = 7000;
        
@@ -20,13 +19,12 @@ class Connector{
             WiFi.begin(ssid, password);
         }
  
+ /*
+ * broadcast method takes message as an argument. c_str parses the message to a char array, which is needed for broadcastTo to work
+ */
         void broadcast(String message){
             udp.broadcastTo(message.c_str(), port);
         }
- 
-     
- 
- 
 };
  
 #endif
