@@ -1,5 +1,5 @@
 /*
-* The Joystick class 
+The Joystick class 
 */
 
 #include <Arduino.h>
@@ -8,7 +8,7 @@
 class Joystick {
 
 /*
-* Initializes the variables for the X and Y pin
+Initializes the variables for the X and Y pin
 */
 public:
   int pinX;
@@ -27,7 +27,7 @@ public:
     pinMode (pinY, INPUT);
   }
 /*
-* movement method checks X and Y value and and sends commands to the pxlserver using the broadcast method from the Connector class
+movement method checks X and Y value and and sends commands to the pxlserver using the broadcast method from the Connector class
 */
   void movement(){
 
@@ -41,7 +41,9 @@ public:
     Serial.print("Y: ");
     Serial.println(analogRead(pinY));
 
-// When using 3,5 volt, center is between 1700-1850
+/*
+When using 3,5 volt, center is between 1700-1850
+*/
 if (currentX>1500 && currentX <1900 && currentY > 1500 && currentY <1900){
 connect.broadcast ("stop");
 } 
