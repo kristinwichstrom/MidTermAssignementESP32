@@ -18,7 +18,6 @@ class Connector{
             WiFi.mode(WIFI_STA);
             WiFi.begin(ssid, password);
         }
- 
  /*
  * broadcast method takes message as an argument. c_str parses the message to a char array, which is needed for broadcastTo to work
  */

@@ -16,14 +16,12 @@ Button button (PIN_BUTTON);
 Potentiometer potentiometer(34); 
 Joystick joystick(36, 35);
 
- 
-void setup() {
+ void setup() {
       Serial.begin(9600);
       WiFi.mode(WIFI_STA);
       WiFi.begin(ssid, password);
       potentiometer.setSensitivity(50);   // Sets the sensitivity
 }
-
 /*
 * The loop function constineuosly looks for updates and calls the button, joystick and potentiometer functions if there are any.
 */

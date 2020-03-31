@@ -6,8 +6,7 @@ class Button {
 
 int buttonPin;
         Connector connect; // Calls the Connector class 
-
-
+        
     public: 
 
     Button (int buttonPin) { // Creates a constructor for the Button class

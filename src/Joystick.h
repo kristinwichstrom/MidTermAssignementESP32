@@ -20,7 +20,7 @@ public:
 /*
 * Initializes and creates a constructor for the Joystick class
 */
-  Joystick (int pinX, int pinY) { 
+    Joystick (int pinX, int pinY) { 
     this-> pinX = pinX;
     this-> pinY = pinY;
     pinMode (pinX, INPUT);
@@ -30,8 +30,8 @@ public:
 * movement method checks X and Y value and and sends commands to the pxlserver using the broadcast method from the Connector class
 */
   void movement(){
-    connect.broadcast("speed 8");
 
+    connect.broadcast("speed 8");
     currentX = analogRead(pinX);
     currentY = analogRead(pinY);
 
@@ -41,16 +41,19 @@ public:
     Serial.print("Y: ");
     Serial.println(analogRead(pinY));
 
-    if(currentX > 3000){
+// When using 3,5 volt, center is between 1700-1850
+if (currentX>1500 && currentX <1900 && currentY > 1500 && currentY <1900){
+connect.broadcast ("stop");
+} 
+    else if(currentX > 1900){
       connect.broadcast("moveright");
-    }else if(currentX < 1000){
+    }else if(currentX < 1500){
       connect.broadcast("moveleft");
     }
-    if(currentY > 3000){
+    if(currentY > 1900){
       connect.broadcast("moveup");
-    } else if(currentY < 1000){
+    } else if(currentY < 1500){
       connect.broadcast("movedown");
-    }
-  }
-    
+    }  
+  } 
 };
