@@ -8,7 +8,7 @@
 class Connector{
  
     public:
-        const char * ssid = "Your wifi"; //Insert your wifi name
+        const char * ssid = "Your wifi name"; //Insert your wifi name
         const char * password = "Your password"; //Insert your wifi password
         AsyncUDP udp;
         int port = 8000;

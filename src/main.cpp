@@ -5,7 +5,7 @@
 #include <Potentiometer.h>
 #include <Joystick.h>
  
-const char * ssid = "Your wifi"; //Insert your wifi name
+const char * ssid = "Your wifi name"; //Insert your wifi name
 const char * password = "Your password"; //Insert your wifi password
  
  /*
