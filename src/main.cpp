@@ -5,8 +5,8 @@
 #include <Potentiometer.h>
 #include <Joystick.h>
  
-const char * ssid = "wifi name"; //Insert your wifi name
-const char * password = " password"; //Insert your wifi password
+const char * ssid = "Your wifi"; //Insert your wifi name
+const char * password = "Your password"; //Insert your wifi password
  
  /*
  * Sets the pinNumbers for the different sensors.
@@ -26,11 +26,10 @@ Joystick joystick(36, 35);
 * The loop function constineuosly looks for updates and calls the button, joystick and potentiometer functions if there are any.
 */
 void loop() {
- 
-  button.notPressed();
-  delay (3000);
+  delay(300);
+  button.buttonPressed();
+  delay(300);
   joystick.movement();
-  
   potentiometer.changePixelColor();
   
  

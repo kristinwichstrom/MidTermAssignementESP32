@@ -4,11 +4,12 @@
 			"path": "/Users/kristinwichstrom/Documents/PlatformIO/Projects/MidtermAssign"
 		},
 		{
-			"path": "/Users/kristinwichstrom/Documents/PlatformIO/Projects/Joystick"
+			"name": "KanzasESP",
+			"path": "../../KanzasESP"
 		},
 		{
-			"name": "PotentiometerExample",
-			"path": "/Users/kristinwichstrom/Documents/PlatformIO/Projects/PotentiometerExample"
+			"name": "kanzas",
+			"path": "../../kanzas"
 		}
 	]
 }

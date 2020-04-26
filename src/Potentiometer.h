@@ -50,7 +50,7 @@ class Potentiometer{
                 }
                 else if(currentRead > 1356 && currentRead <= 2712)
                 {
-                    connect.broadcast("color 0 255 0");
+                   connect.broadcast("color 0 255 0");
                
                 }
                  else
@@ -60,4 +60,4 @@ class Potentiometer{
                 }
             }
         }
-};
+};  

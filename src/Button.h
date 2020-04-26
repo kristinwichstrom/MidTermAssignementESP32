@@ -17,12 +17,12 @@ int buttonPin;
 /*
 * Method checks whether button is pressed or not
 */
-    void notPressed (){
+    void buttonPressed (){
         if(digitalRead(buttonPin)){
                 Serial.println("Not pressed");
         }else{
             Serial.println("Pressed");
-            connect.broadcast("init 9 9");
+            connect.broadcast("init 200 200");
         }
     }
 };
